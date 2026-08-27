@@ -91,7 +91,7 @@ button{font-family:inherit;}
 
 /* ===== MARQUEE (signature element) ===== */
 .marquee-band{background:var(--brown);overflow:hidden;padding:15px 0;position:relative;}
-.marquee-track{display:flex;width:max-content;animation:marquee 32s linear infinite;}
+.marquee-track{display:flex;width:max-content;min-width:max-content;animation:marquee 18s linear infinite;will-change:transform;}
 .marquee-track span{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;color:var(--gold-light);padding:0 10px;white-space:nowrap;letter-spacing:.02em;opacity:.9;}
 .marquee-track span::after{content:'•';color:var(--brown-light);margin-left:20px;font-style:normal;}
 @keyframes marquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}

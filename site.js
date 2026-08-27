@@ -34,13 +34,10 @@ function buildMarquee(){
   const band = document.querySelector('.marquee-band');
   if(!words || !words.length){ track.innerHTML = ''; return; }
   const seq = words.map(w=>`<span>${w}</span>`).join('');
-  // Measure one copy, then repeat enough times that the loop never shows a gap,
-  // however short the word list is or however wide the screen is.
-  track.innerHTML = seq;
   const containerWidth = band ? band.clientWidth : window.innerWidth;
-  const singleWidth = track.scrollWidth || 1;
-  let copies = Math.max(2, Math.ceil((containerWidth * 2) / singleWidth));
-  if(copies % 2 !== 0) copies++; // keep even so the -50% loop point lines up seamlessly
+  const singleWidth = Math.max(track.scrollWidth || 1, 1);
+  let copies = Math.max(12, Math.ceil((containerWidth * 3) / Math.max(singleWidth, 1)));
+  if(copies % 2 !== 0) copies += 1;
   copies = Math.min(60, copies);
   track.innerHTML = seq.repeat(copies);
 }
